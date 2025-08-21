@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | GROUP6 SURVEYS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-icon"><i class="fas fa-poll"></i></span>
+                GROUP6 SURVEY APP
+            </div>
+            <!-- Mobile toggle button -->
+            <button class="nav-toggle" id="nav-toggle">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+            <!-- Nav links -->
+            <nav class="nav-links" id="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="nav-link">Create Survey</a>
+                <a href="{{ url_for('list_surveys') }}" class="nav-link">All Surveys</a>
+            </nav>
+            <!-- Mobile dropdown menu -->
+            <div class="mobile-dropdown" id="mobile-dropdown">
+                <a href="{{ url_for('home') }}" class="dropdown-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="dropdown-link">Create Survey</a>
+                <a href="{{ url_for('list_surveys') }}" class="dropdown-link">All Surveys</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="survey-section">
+            <div class="survey-container">
+                <!-- Header -->
+                <div class="survey-header">
+                    <h1 class="survey-page-title">{{ survey.title }}</h1>
+                    {% if survey.description %}
+                    <p class="survey-description-view">{{ survey.description }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Survey Form -->
+                <form method="POST" action="{{ url_for('submit_survey_response', survey_id=survey.id) }}" class="take-survey-form">
+                    {% for question in questions %}
+                    <div class="response-question-block">
+                        <div class="question-display-header">
+                            <span class="question-number">Question {{ question.question_order }}</span>
+                            {% if question.is_required %}
+                            <span class="required-badge">Required</span>
+                            {% endif %}
+                        </div>
+                        <h3 class="question-text">{{ question.question_text }}</h3>
+                        
+                        {% if question.question_type == 'text' %}
+                            <textarea name="question_{{ question.id }}" class="form-textarea" rows="3"
+                                   {% if question.is_required %}required{% endif %} 
+                                   placeholder="Type your answer here..."></textarea>
+                        
+                        {% elif question.question_type == 'multiple-choice' %}
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="question_{{ question.id }}" value="Excellent" 
+                                           {% if question.is_required %}required{% endif %}>
+                                    Excellent
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="question_{{ question.id }}" value="Good"
+                                           {% if question.is_required %}required{% endif %}>
+                                    Good
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="question_{{ question.id }}" value="Average"
+                                           {% if question.is_required %}required{% endif %}>
+                                    Average
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="question_{{ question.id }}" value="Poor"
+                                           {% if question.is_required %}required{% endif %}>
+                                    Poor
+                                </label>
+                            </div>
+                        
+                        {% elif question.question_type == 'checkbox' %}
+                            <div class="checkbox-dropdown-group">
+                                <p class="checkbox-instruction">Select from the dropdown (you can select multiple):</p>
+                                <select name="question_{{ question.id }}" class="form-select checkbox-dropdown" multiple size="6"
+                                        {% if question.is_required %}required{% endif %}>
+                                    {% if question.checkbox_options %}
+                                        {% for option in question.checkbox_options.split('\n') %}
+                                            {% if option.strip() %}
+                                            <option value="{{ option.strip() }}">{{ option.strip() }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        <option value="Option 1">Option 1</option>
+                                        <option value="Option 2">Option 2</option>
+                                        <option value="Option 3">Option 3</option>
+                                    {% endif %}
+                                </select>
+                                <small class="help-text">Hold Ctrl (Windows) or Cmd (Mac) to select multiple options</small>
+                            </div>
+                        
+                        {% elif question.question_type == 'rating' %}
+                            <div class="rating-group">
+                                <p class="rating-instruction">Rate from 1 to 5 (1 = Very Poor, 5 = Excellent):</p>
+                                <div class="rating-options">
+                                    <label class="rating-label">
+                                        <input type="radio" name="question_{{ question.id }}" value="1"
+                                               {% if question.is_required %}required{% endif %}>
+                                        <span class="rating-number">1</span>
+                                        <span class="rating-text">Very Poor</span>
+                                    </label>
+                                    <label class="rating-label">
+                                        <input type="radio" name="question_{{ question.id }}" value="2"
+                                               {% if question.is_required %}required{% endif %}>
+                                        <span class="rating-number">2</span>
+                                        <span class="rating-text">Poor</span>
+                                    </label>
+                                    <label class="rating-label">
+                                        <input type="radio" name="question_{{ question.id }}" value="3"
+                                               {% if question.is_required %}required{% endif %}>
+                                        <span class="rating-number">3</span>
+                                        <span class="rating-text">Average</span>
+                                    </label>
+                                    <label class="rating-label">
+                                        <input type="radio" name="question_{{ question.id }}" value="4"
+                                               {% if question.is_required %}required{% endif %}>
+                                        <span class="rating-number">4</span>
+                                        <span class="rating-text">Good</span>
+                                    </label>
+                                    <label class="rating-label">
+                                        <input type="radio" name="question_{{ question.id }}" value="5"
+                                               {% if question.is_required %}required{% endif %}>
+                                        <span class="rating-number">5</span>
+                                        <span class="rating-text">Excellent</span>
+                                    </label>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <a href="{{ url_for('list_surveys') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Survey
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Survey System - GROUP6 SURVEY</p>
+        </div>
+    </footer>
+
+    <!-- Simple Scripts -->
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

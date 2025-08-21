@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | GROUP6 SURVEYS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-icon"><i class="fas fa-poll"></i></span>
+                GROUP6 SURVEY APP
+            </div>
+            <!-- Mobile toggle button -->
+            <button class="nav-toggle" id="nav-toggle">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+            <!-- Nav links -->
+            <nav class="nav-links" id="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="nav-link">Create Survey</a>
+                <a href="{{ url_for('list_surveys') }}" class="nav-link">All Surveys</a>
+            </nav>
+            <!-- Mobile dropdown menu -->
+            <div class="mobile-dropdown" id="mobile-dropdown">
+                <a href="{{ url_for('home') }}" class="dropdown-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="dropdown-link">Create Survey</a>
+                <a href="{{ url_for('list_surveys') }}" class="dropdown-link">All Surveys</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="survey-section">
+            <div class="survey-container">
+                <div class="thank-you-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1 class="thank-you-title">Thank You!</h1>
+                    <p class="thank-you-message">
+                        Your survey response has been submitted successfully. 
+                        We appreciate you taking the time to share your thoughts with us.
+                    </p>
+                    <div class="thank-you-actions">
+                        <a href="{{ url_for('home') }}" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                        <a href="{{ url_for('list_surveys') }}" class="btn btn-secondary">
+                            <i class="fas fa-list"></i> View All Surveys
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Survey System - GROUP6 SURVEY</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
