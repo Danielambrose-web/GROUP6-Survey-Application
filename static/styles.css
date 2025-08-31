@@ -39,6 +39,7 @@ nav li{
     height: 50px;
     padding: 0 30px;
     align-content: center;
+    transition: all 500ms ease-in;
 }
 
 nav li:hover{
