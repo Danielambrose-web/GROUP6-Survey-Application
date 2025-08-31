@@ -1,32 +1,40 @@
+#this imports all the modules needed for the server side
 from flask import Flask, render_template, request, redirect, url_for
+#importing the os module (operating system)
 import os
+#importing the module for the database connection 
 import sqlite3
+#importing the json file format module
 import json
 
+
+#initializing app and creating an application object to handle requests and responses 
 app = Flask(__name__)
+#Encrypting session cookies (so users can’t tamper with them).
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key_for_development")
 
 # Simple database setup
 DATABASE = 'surveys.db'
 
-def get_db_connection():
+#creating a function with the def keyword 
+def get_db_connection():#function name as get_db_connection()
     """Get database connection"""
-    conn = sqlite3.connect(DATABASE)
-    conn.row_factory = sqlite3.Row
-    return conn
+    conn = sqlite3.connect(DATABASE)#assigs opening connection to a database file to the variable conn
+    conn.row_factory = sqlite3.Row# changes query results from plain tuple to dictionary format
+    return conn # returns the variable conn so that it can be used later on in the app
 
-def init_db():
+def init_db(): #creates a function init_db() short for initialize database
     """Initialize the database with tables"""
-    conn = get_db_connection()
+    conn = get_db_connection() #assigns a new pre function to the variable conn
     
-    # Create surveys table
+    # Create surveys table by using sqlite built in method .execute ()
     conn.execute('''
         CREATE TABLE IF NOT EXISTS surveys (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
             description TEXT
         )
-    ''')
+    ''')#this creates a table as described in plain text in the code 
     
     # Create questions table
     conn.execute('''
