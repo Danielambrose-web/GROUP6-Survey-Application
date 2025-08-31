@@ -55,17 +55,23 @@ nav .logo{
 .sideBar{
     position: fixed;
     top: 0;
-    right: 0;
+    /* right: 0; */
+    left: -5000px;
     z-index: 999;
     height: 100vh;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.514);
     box-shadow: -5px 0 15px white;
     backdrop-filter: blur(10px);
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    transition: left 700ms ease;
+}
+
+.sideBar.active{
+    left: 0;
 }
 
 .sideBar li{
@@ -73,6 +79,7 @@ nav .logo{
 }
 .toggle{
     display: none;
+
 }
 @media(max-width: 1000px){
     .menu-btn{
@@ -81,6 +88,7 @@ nav .logo{
 
     .toggle{
         display: block;
+        transition: left 2000ms ease;
     }
     .sideBar{
         width: 100%;
@@ -310,8 +318,21 @@ nav .logo{
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: rotate infinite ease 2000ms;
 }
 
+.hero-right:hover {
+    animation: pause;
+}
+
+@keyframes rotate {
+
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(-20deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(20deg);}
+    100% {transform: rotate(0deg);}
+}
 .hero-image {
     width: 100%;
     max-width: 400px;

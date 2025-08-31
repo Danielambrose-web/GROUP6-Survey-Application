@@ -26,11 +26,11 @@
 // });
 
 function hideSidebar(){
-    const sidebar = document.querySelector(".sideBar")
-    sidebar.style.display = "none"
+    const sidebar = document.querySelector(".sideBar");
+    sidebar.classList.remove("active");
 }
 
 function showSidebar(){
-    const sidebar = document.querySelector(".sideBar")
-    sidebar.style.display = "flex"
+    const sidebar = document.querySelector(".sideBar");
+    sidebar.classList.add("active");
 }
