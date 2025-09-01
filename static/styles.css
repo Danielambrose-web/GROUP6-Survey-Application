@@ -1199,6 +1199,11 @@ a {
     .status-icon {
         width: 20px;
         margin: 0 10px;
-        flex-shrink: 1;
+        flex-shrink: 0.5;
+    }
+    .hero-container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
     }
 }
