@@ -331,7 +331,7 @@ a {
     height: 24px;
     background: #fbbf24;
     border-radius: 50%;
-    margin-right: 15px;
+    margin: 0 auto;
     flex-shrink: 0;
 }
 
