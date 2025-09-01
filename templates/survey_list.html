@@ -9,30 +9,49 @@
 </head>
 <body>
     <!-- Navbar -->
-    <header class="navbar">
+    <header>
+        <nav>
+            <ul class="sideBar">
+                <li onclick="hideSidebar()"><img src="/static/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt=""></li>
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+                <li><a href="{{ url_for('survey_selection') }}">CREATE SURVEY</a></li>
+                <li><a href="{{ url_for('list_surveys') }}">All SURVEY</a></li>
+            </ul>
+            <div class="logo">
+                <H1>GROUP SURVEY APP</H1>
+            </div>
+            <ul>
+                <li class = "menu-btn"><a href="{{ url_for('home') }}">HOME</a></li>
+                <li class = "menu-btn"><a href="{{ url_for('survey_selection') }}">CREATE SURVEY</a></li>
+                <li class = "menu-btn"><a href="{{ url_for('list_surveys') }}">ALL SURVEY</a></li>
+                <li class="toggle active" onclick="showSidebar()"><img src="/static/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt=""></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <header class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
                 <span class="nav-icon"><i class="fas fa-poll"></i></span>
                 GROUP6 SURVEY APP
-            </div>
+            </div> -->
             <!-- Mobile toggle button -->
-            <button class="nav-toggle" id="nav-toggle">
-                &#9776; <!-- Hamburger icon -->
-            </button>
+            <!-- <button class="nav-toggle" id="nav-toggle">
+                &#9776; 
+            </button> -->
             <!-- Nav links -->
-            <nav class="nav-links" id="nav-links">
+            <!-- <nav class="nav-links" id="nav-links">
                 <a href="{{ url_for('home') }}" class="nav-link">Home</a>
                 <a href="{{ url_for('survey_selection') }}" class="nav-link">Create Survey</a>
                 <a href="{{ url_for('list_surveys') }}" class="nav-link">All Surveys</a>
-            </nav>
+            </nav> -->
             <!-- Mobile dropdown menu -->
-            <div class="mobile-dropdown" id="mobile-dropdown">
+            <!-- <div class="mobile-dropdown" id="mobile-dropdown">
                 <a href="{{ url_for('home') }}" class="dropdown-link">Home</a>
                 <a href="{{ url_for('survey_selection') }}" class="dropdown-link">Create Survey</a>
                 <a href="{{ url_for('list_surveys') }}" class="dropdown-link">All Surveys</a>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <!-- Main Content -->
     <main class="main-content">
@@ -64,10 +83,10 @@
                                 <a href="{{ url_for('survey_results', survey_id=survey.id) }}" class="btn btn-info">
                                     <i class="fas fa-chart-bar"></i> View Results
                                 </a>
-                                <button onclick="sharesurvey({{ survey.id }}, '{{ survey.title }}')" class="btn btn-success">
+                                <button onclick="sharesurvey('{{ survey.id }}', '{{ survey.title }}')" class="btn btn-success"> <!--there was an error here no js file -->
                                     <i class="fas fa-share"></i> Share
                                 </button>
-                                <button onclick="deleteSurvey({{ survey.id }})" class="btn btn-danger">
+                                <button onclick="deleteSurvey('{{ survey.id }}')" class="btn btn-danger"> <!--there was an error here no js file -->
                                     <i class="fas fa-trash"></i> Delete
                                 </button>
                             </div>

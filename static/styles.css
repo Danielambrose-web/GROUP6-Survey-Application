@@ -19,6 +19,10 @@ body {
     flex-direction: column;
 }
 
+.logo h1{
+    font-size: 20px;
+}
+
 /* ================= NAVIGATION ================= */
 
 nav{
@@ -43,13 +47,17 @@ nav li{
 }
 
 nav li:hover{
-    background-color: rgb(196, 190, 190);
+    background-color: #667eea;
 }
 
 nav .logo{
     padding-left: 20px;
     font-size: 20px;
     text-wrap: nowrap;
+}
+
+a {
+    display: block;
 }
 
 .sideBar{
@@ -67,7 +75,7 @@ nav .logo{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    transition: left 700ms ease;
+    transition: left 1000ms ease;
 }
 
 .sideBar.active{
