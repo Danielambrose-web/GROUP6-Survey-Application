@@ -81,6 +81,29 @@ nav .logo{
     display: none;
 
 }
+.slide-in:nth-child(1) {
+    animation: slideIn 3000ms forwards;
+}
+.slide-in:nth-child(2) {
+    animation: slideIn 2300ms forwards;
+}
+.slide-in:nth-child(3) {
+    animation: slideIn 1500ms forwards;
+}
+.slide-in:nth-child(4) {
+    animation: slideIn 1000ms forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(20px);
+    }
+}
 @media(max-width: 1000px){
     .menu-btn{
         display: none;
@@ -318,21 +341,32 @@ nav .logo{
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: rotate infinite ease 2000ms;
+    animation: rotate 3000ms ease infinite;
 }
 
 .hero-right:hover {
-    animation: pause;
+    animation-play-state: paused;
 }
 
 @keyframes rotate {
 
-    0% {transform: rotate(0deg);}
-    25% {transform: rotate(-20deg);}
-    50% {transform: rotate(0deg);}
-    75% {transform: rotate(20deg);}
-    100% {transform: rotate(0deg);}
+    0% {
+        transform: rotate(0deg) ;
+    }
+    25% {
+        transform: rotate(-20deg) ;
+    }
+    50% {
+        transform:  rotate(0deg) ;
+    }
+    75% {
+        transform: rotate(20deg) ;
+    }
+    100% {
+        transform: rotate(0deg) ;
+    }
 }
+
 .hero-image {
     width: 100%;
     max-width: 400px;

@@ -59,12 +59,12 @@
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-left">
-                    <h1 class="hero-title">GROUP6 SURVEY SYSTEM</h1>
-                    <p class="hero-description">Create, distribute, and manage surveys with ease</p>
-                    <div class="hero-buttons">
+                    <h1 class="hero-title slide-in">GROUP6 SURVEY SYSTEM</h1>
+                    <p class="hero-description slide-in">Create, distribute, and manage surveys with ease</p>
+                    <div class="hero-buttons slide-in">
                         <a href="{{ url_for('survey_selection') }}" class="btn btn-primary">Create New Survey</a>
                     </div>
-                    <div class="status-message">
+                    <div class="status-message slide-in">
                         <span class="status-icon"></span>
                         <div class="status-text">
                             {% if survey_count > 0 %}
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-right">
+                <div class="hero-right slide-in">
                     <div class="hero-image">
                         <!-- Using SVG placeholder for hero image -->
                         <svg class="hero-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
