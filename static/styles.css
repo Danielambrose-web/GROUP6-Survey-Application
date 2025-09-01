@@ -1193,6 +1193,11 @@ a {
         font-size: 2rem;
     }
     .status-message {
-    padding: 10px;
-}
+        padding: 10px;
+    }
+    
+    .status-icon {
+        width: 20px;
+        margin: 0 10px;
+    }
 }
