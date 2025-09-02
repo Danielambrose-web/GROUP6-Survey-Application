@@ -67,8 +67,8 @@
                     {% if survey_count > 0 %}
                     <h3>{{ survey_count }} Survey{{ 's' if survey_count != 1 else '' }} Created</h3>
                     <p >
-                        <a href="{{ url_for('list_surveys') }}">View all surveys</a>
-                        <a href="{{ url_for('survey_selection') }}">or create a new one</a>
+                        <a  class="box-p" href="{{ url_for('list_surveys') }}">View all surveys</a>
+                        <a class="box-p" href="{{ url_for('survey_selection') }}">or create a new one</a>
                     </p>
                     {% else %}
                     <h3>No Surveys Yet?</h3>
@@ -79,18 +79,6 @@
                 </div>
             </div>
             <div class="hero-right">
-                <svg class="hero-img" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="500" height="400" fill="#e5e7eb"/>
-                    <g fill="#6b7280">
-                        <rect x="50" y="50" width="300" height="20" rx="10"/>
-                        <rect x="50" y="90" width="250" height="15" rx="7"/>
-                        <rect x="50" y="120" width="280" height="15" rx="7"/>
-                        <rect x="50" y="150" width="200" height="15" rx="7"/>
-                        <circle cx="320" cy="200" r="30" fill="#3b82f6"/>
-                        <path d="M310 195 l8 8 l12 -12" stroke="white" stroke-width="3" fill="none"/>
-                    </g>
-                    <text x="200" y="250" text-anchor="middle" fill="#4b5563" font-family="Arial" font-size="14">Survey Management</text>
-                </svg>
             </div>
         </div>
      </section>
