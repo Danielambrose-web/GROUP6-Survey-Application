@@ -1277,6 +1277,9 @@ section .wrapper {
         width: 200px;
         margin-top: 5px;
     }
+    .box p {
+        text-wrap: wrap;
+    }
     .hero-left h1 {
         font-size: 25px;
     }
