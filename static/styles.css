@@ -14,9 +14,6 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #667eea;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .logo h1{
@@ -57,6 +54,7 @@ nav .logo{
 }
 
 a {
+    width: 100%;
     display: block;
 }
 
@@ -229,13 +227,13 @@ a {
 } */
 
 /* ================= MAIN CONTENT ================= */
-.main-content {
+/* .main-content {
     flex: 1;
     padding: 0;
-}
+} */
 
 /* ================= HERO SECTION ================= */
-.hero-section {
+/* .hero-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 80px 0;
@@ -245,7 +243,7 @@ a {
 }
 
 .hero-container {
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     display: grid;
@@ -273,7 +271,7 @@ a {
 
 .hero-buttons {
     margin-bottom: 40px;
-}
+} */
 
 .btn {
     display: inline-block;
@@ -317,11 +315,10 @@ a {
     background: #b91c1c;
 }
 
-.status-message {
+/*.status-message {
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
     border-radius: 12px;
     border-left: 4px solid #fbbf24;
 }
@@ -343,9 +340,89 @@ a {
 .status-text p {
     opacity: 0.9;
     margin: 0;
+} */
+section {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
 }
 
+section .wrapper {
+    width: 100%;
+    height: 700px;
+    padding: 30px;
+    background-color: hsl(0, 0%, 84%, 0.192);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    display: grid;
+    /* flex-wrap: wrap; */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    white-space: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.box {
+    max-width: 700px;
+    height: 100px;
+    margin-top: 70px;
+    margin-left: 20px;
+    display: flex;
+    text-align: left;
+    text-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 3px solid  #ffb100;
+    gap: 3px;
+    align-items: center;
+    flex-shrink: 1;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #667eeac4 0%, #764ba2c9 100%);
+}
+.hero-left h1 {
+    font-size: 40px;
+}
+.hero-left {
+    height: 420px;
+    border-radius: 20px;
+    align-content: flex-start;
+    padding-top: 20px;
+    margin: 0;
+}
+.hero-left p {
+    margin: 10px 0;
+}
+.hero-left .box p {
+    margin: 0;
+    display: flex;
+
+}
+.hero-buttons a {
+    width: 450px;
+    margin-top: 20px;
+}
 .hero-right {
+    height: 420px;
+    border-radius: 20px;
+    align-content: center;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.hero-right svg {
+    width: 700px;
+    height: 400px;
+}
+.box a {
+    margin-left: 2px;
+}
+.box h3 {
+    font-size: 20px;
+}
+.box a:nth-child(1) {
+    text-decoration: underline;
+}
+/* .hero-right {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -354,7 +431,7 @@ a {
 
 .hero-right:hover {
     animation-play-state: paused;
-}
+} */
 
 @keyframes rotate {
 
@@ -1100,31 +1177,16 @@ a {
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: auto;
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-bottom: 0px;
 }
 
 /* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 768px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    
-    .hero-description {
-        font-size: 1.1rem;
-    }
-    
     .features-grid {
         grid-template-columns: 1fr;
     }
@@ -1178,13 +1240,15 @@ a {
         width: 100%;
         max-width: 300px;
     }
-}
-
-@media (max-width: 700px) {
-    .hero-title {
-        font-size: 1.8rem;
+    .hero-left {
+        align-content: flex-start;
     }
-    
+    .hero-buttons a {
+        width: 300px;
+    }
+    .hero-left h1 {
+        font-size: 30px;
+    }
     .survey-page-title {
         font-size: 1.8rem;
     }
@@ -1192,23 +1256,36 @@ a {
     .features-title {
         font-size: 2rem;
     }
-    .status-message {
-        padding: 10px;
+    .box {
+        width: 320px;
+    }
+}
+
+
+@media (min-width: 300px) {
+    .hero-left {
+        width: fit-content;
+        align-content: flex-start;
+        padding-left: 50px;
+    }
+    .hero-right svg {
+    width: 400px;
+    height: 200px;
+    padding-left: 30px;
+    }
+    .hero-buttons {
+        width: 200px;
+        margin-top: 5px;
+    }
+    .hero-left h1 {
+        font-size: 25px;
+    }
+    .survey-page-title {
+        font-size: 1.8rem;
     }
     
-    .status-icon {
-        width: 20px;
-        margin: 0 10px;
-        flex-shrink: 0.5;
+    .features-title {
+        font-size: 2rem;
     }
-    .hero-container {
-        width: 100%;
-        margin: 0 0;
-        padding: 0 0;
-    }
-    .hero-section {
-        width: 100%;
-        margin: 0 10px;
-        padding: 10px;
-    }
+
 }
