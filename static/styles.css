@@ -1065,7 +1065,6 @@ section .wrapper {
 
     .hero-left p {
         width: 300px;
-        text-wrap: wrap;
         padding: 0;
         margin: 0;
 
