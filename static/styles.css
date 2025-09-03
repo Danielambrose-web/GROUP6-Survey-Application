@@ -1057,7 +1057,7 @@ section .wrapper {
 {
     .hero-left {
         width: fit-content;
-        height: 600px;
+        height: 400px;
         align-content: flex-start;
         padding-left: 0px;
         text-wrap: wrap;
