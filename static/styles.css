@@ -1057,14 +1057,15 @@ section .wrapper {
 {
     .hero-left {
         width: fit-content;
-        height: 400px;
+        height: 500px;
         align-content: flex-start;
         padding-left: 0px;
         text-wrap: wrap;
     }
 
     .hero-left p {
-        width: 400px;
+        width: 300px;
+        text-wrap: nowrap;
         padding: 0;
         margin: 0;
 
