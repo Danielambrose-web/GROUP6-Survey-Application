@@ -1039,6 +1039,7 @@ section .wrapper {
     }
     .hero-left h1 {
         font-size: 30px;
+        text-wrap: nowrap;
     }
     .survey-page-title {
         font-size: 1.8rem;
@@ -1065,7 +1066,7 @@ section .wrapper {
 
     .hero-left p {
         width: 300px;
-        text-wrap: nowrap;
+        text-wrap: wrap;
         padding: 0;
         margin: 0;
 
