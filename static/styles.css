@@ -1293,6 +1293,9 @@ section .wrapper {
     .hero-buttons {
         margin-top: 5px;
     }
+    .box p {
+        text-wrap: wrap;
+    }
     .hero-buttons a {
         width: 200px;
         text-wrap: nowrap;
