@@ -67,7 +67,7 @@
                     {% if survey_count > 0 %}
                     <h3>{{ survey_count }} Survey{{ 's' if survey_count != 1 else '' }} Created</h3>
                     <p >
-                        <a  class="box-p" href="{{ url_for('list_surveys') }}">View all surveys</a>
+                        <a  class="box-p game" href="{{ url_for('list_surveys') }}">View all surveys</a>
                         <a class="box-p" href="{{ url_for('survey_selection') }}">or create a new one</a>
                     </p>
                     {% else %}
