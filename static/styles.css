@@ -600,7 +600,7 @@ section .wrapper {
     background: white;
 }
 
-input {
+input::content {
     color: hsl(0, 0%, 0%);
 }
 
