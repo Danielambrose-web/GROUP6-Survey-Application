@@ -1,0 +1,14 @@
+{
+    "builds": [
+    {
+        "src": "app.py",
+        "use": "@vervel/python"
+    }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "app.py"
+        }
+    ]
+}
